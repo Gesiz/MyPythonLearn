@@ -31,3 +31,4 @@ print("This IS a book".lower())
 print("This IS a book".upper())
 # 13. "this is a book\n", 字符串的末尾有一个回车符,请将其删除
 print("this is a book\n".strip("\n"), end="")
+"this is a book".capitalize()
