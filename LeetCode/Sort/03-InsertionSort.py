@@ -12,21 +12,39 @@ import timeit
 iList = randomList(20)
 
 
-def insertSort(iList):
-    if len(iList) >= 1:
-        print("数据长度不够")
+def insertionSort(iList):
+    if len(iList) <= 1:
+        print("error")
 
     for right in range(1, len(iList)):
         target = iList[right]
         for left in range(0, right):
-            if iList[right] <= iList[left]:
-                iList[left + 1:right + 1] = iList[left:right]
+            if target <= iList[left]:
+                iList[left + 1: right + 1] = iList[left: right]
                 iList[left] = target
+                break
     return iList
 
 
 if __name__ == "__main__":
-    print(insertSort(iList))
+    print(insertionSort(iList))
+
+#
+# def insertSort(iList):
+#     if len(iList) >= 1:
+#         print("数据长度不够")
+#
+#     for right in range(1, len(iList)):
+#         target = iList[right]
+#         for left in range(0, right):
+#             if iList[right] <= iList[left]:
+#                 iList[left + 1:right + 1] = iList[left:right]
+#                 iList[left] = target
+#     return iList
+#
+#
+# if __name__ == "__main__":
+#     print(insertSort(iList))
 
 # def insertSort(iList):  # 定义一个选择插入
 #     if len(iList) <= 1:

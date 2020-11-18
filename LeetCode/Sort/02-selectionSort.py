@@ -16,12 +16,43 @@ iList = randomList(20)
 
 def selectionSort(iList):
     if len(iList) <= 1:
-        print("不满足条件")
+        return iList
+
     for i in range(0, len(iList) - 1):
         if iList[i] != min(iList[i:]):
             minIndex = iList.index(min(iList[i:]))
-            iList[i, iList[minIndex]] = iList[minIndex], iList[i]
-        return iList
+            iList[i], iList[minIndex] = iList[minIndex], iList[i]
+    return iList
+
+
+if __name__ == "__main__":
+    print(selectionSort(iList))
+
+# iList = randomList(20)
+#
+#
+# def selectionSort(iList):
+#     if len(iList) <= 1:
+#         print("error")
+#
+#     for i in range(0, len(iList)-1):
+#         if iList[i] != min(iList[i:]):
+#             minIndex = iList.index(min(iList[i:]))
+#             iList[i], iList[minIndex] = iList[minIndex], iList[i]
+#     return iList
+#
+#
+# if __name__ == "__main__":
+#     print(selectionSort(iList))
+
+# def selectionSort(iList):
+#     if len(iList) <= 1:
+#         print("不满足条件")
+#     for i in range(0, len(iList) - 1):
+#         if iList[i] != min(iList[i:]):
+#             minIndex = iList.index(min(iList[i:]))
+#             iList[i, iList[minIndex]] = iList[minIndex], iList[i]
+#         return iList
 
 # def selectionSort(iList):
 #     if len(iList) <= 1:

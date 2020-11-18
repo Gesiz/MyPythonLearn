@@ -14,7 +14,7 @@ iList = randomList(20)
 
 def bubbleSort(iList):
     if len(iList) <= 1:
-        print("长度不够 重新输入")
+        print("不满足")
 
     for i in range(1, len(iList)):
         for j in range(0, len(iList) - i):
@@ -22,8 +22,24 @@ def bubbleSort(iList):
                 iList[j], iList[j + 1] = iList[j + 1], iList[j]
     return iList
 
+
 if __name__ == "__main__":
     print(bubbleSort(iList))
+# iList = randomList(20)
+#
+#
+# def bubbleSort(iList):
+#     if len(iList) <= 1:
+#         print("长度不够 重新输入")
+#
+#     for i in range(1, len(iList)):
+#         for j in range(0, len(iList) - i):
+#             if iList[j] <= iList[j + 1]:
+#                 iList[j], iList[j + 1] = iList[j + 1], iList[j]
+#     return iList
+#
+# if __name__ == "__main__":
+#     print(bubbleSort(iList))
 
 
 # def bubbleSort(iList):

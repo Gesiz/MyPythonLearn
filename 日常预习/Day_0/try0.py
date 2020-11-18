@@ -855,3 +855,7 @@ print(formatter.format("Try your", "Own text here", "Maybe a poem", "or a song a
 #
 # bulls_on_parade.sing_me_a_song()
 
+
+iString = "is str"
+if isinstance(iString, (str, int)):
+    print("属于该类型")
