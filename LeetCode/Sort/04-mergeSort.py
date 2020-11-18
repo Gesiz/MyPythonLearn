@@ -12,10 +12,10 @@ def mergeSort(iList):
         return iList
 
     middle = len(iList) // 2
-    return mergelist(mergeSort(iList[0:middle]), mergeSort(iList[middle:]))
+    return mergeList(mergeSort(iList[0:middle]), mergeSort(iList[middle:]))
 
 
-def mergelist(left, right):
+def mergeList(left, right):
     mList = []
     while left and right:
         if left[0] >= right[0]:
@@ -28,12 +28,38 @@ def mergelist(left, right):
 
     while right:
         mList.append(right.pop(0))
-
     return mList
-
 
 if __name__ == "__main__":
     print(mergeSort(iList))
+
+# def mergeSort(iList):
+#     if len(iList) <= 1:
+#         return iList
+#
+#     middle = len(iList) // 2
+#     return mergelist(mergeSort(iList[0:middle]), mergeSort(iList[middle:]))
+#
+#
+# def mergelist(left, right):
+#     mList = []
+#     while left and right:
+#         if left[0] >= right[0]:
+#             mList.append(left.pop(0))
+#         else:
+#             mList.append(right.pop(0))
+#
+#     while left:
+#         mList.append(left.pop(0))
+#
+#     while right:
+#         mList.append(right.pop(0))
+#
+#     return mList
+
+
+# if __name__ == "__main__":
+#     print(mergeSort(iList))
 
 # def mergeSort(iList):
 #     if len(iList) <= 1:

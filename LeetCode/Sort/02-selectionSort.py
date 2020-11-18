@@ -17,7 +17,6 @@ iList = randomList(20)
 def selectionSort(iList):
     if len(iList) <= 1:
         return iList
-
     for i in range(0, len(iList) - 1):
         if iList[i] != min(iList[i:]):
             minIndex = iList.index(min(iList[i:]))
@@ -27,7 +26,6 @@ def selectionSort(iList):
 
 if __name__ == "__main__":
     print(selectionSort(iList))
-
 # iList = randomList(20)
 #
 #
