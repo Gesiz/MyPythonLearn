@@ -21,11 +21,37 @@ def selectionSort(iList):
         if iList[i] != min(iList[i:]):
             minIndex = iList.index(min(iList[i:]))
             iList[i], iList[minIndex] = iList[minIndex], iList[i]
+
     return iList
+
+
+# def selectionSort(iList):
+#     for i in range(1, len(iList) - 1):
+#         if (len(iList)) <= 1:
+#             return iList
+#
+#     for i in range(0, len(iList) - 1):
+#         if iList[i] != min(iList[i:]):
+#             minIndex = iList.index(min(iList[i:]))
+#             iList[i], iList[minIndex] = iList[minIndex], iList[i]
+#     return iList
 
 
 if __name__ == "__main__":
     print(selectionSort(iList))
+
+# def selectionSort(iList):
+#     if len(iList) <= 1:
+#         return iList
+#     for i in range(0, len(iList) - 1):
+#         if iList[i] != min(iList[i:]):
+#             minIndex = iList.index(min(iList[i:]))
+#             iList[i], iList[minIndex] = iList[minIndex], iList[i]
+#     return iList
+#
+#
+# if __name__ == "__main__":
+#     print(selectionSort(iList))
 # iList = randomList(20)
 #
 #

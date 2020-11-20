@@ -11,19 +11,43 @@ import timeit
 
 iList = randomList(20)
 
-
 def bubbleSort(iList):
-    if len(iList) <= 1:
-        return iList
-    for i in range(1, len(iList)):
-        for j in range(0, len(iList) - i):
-            if iList[j] <= iList[j + 1]:
-                iList[j], iList[j + 1] = iList[j + 1], iList[j]
+    for i in range(1,len(iList)-1):
+        for j in range(0,len(iList)-i):
+            if iList[j] > iList[j+1]:
+                iList[j],iList[j+1] = iList[j+1],iList[j]
     return iList
+
+
+
+
+
+
+#
+# def bubbleSort(iList):
+#     for i in range(1, len(iList) - 1):
+#         for j in range(0, len(iList) - i):
+#             if iList[j] <= iList[j + 1]:
+#                 iList[j], iList[j + 1] = iList[j + 1], iList[j]
+#     return iList
 
 
 if __name__ == "__main__":
     print(bubbleSort(iList))
+
+
+    # def bubbleSort(iList):
+#     if len(iList) <= 1:
+#         return iList
+#     for i in range(1, len(iList)):
+#         for j in range(0, len(iList) - i):
+#             if iList[j] <= iList[j + 1]:
+#                 iList[j], iList[j + 1] = iList[j + 1], iList[j]
+#     return iList
+#
+#
+# if __name__ == "__main__":
+#     print(bubbleSort(iList))
 
 # def bubbleSort(iList):
 #     if len(iList) <= 1:

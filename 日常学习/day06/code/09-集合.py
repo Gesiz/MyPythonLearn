@@ -34,9 +34,11 @@ print(set3)
 # 需求 将11 修改为20
 # 方法一 先转类型 修改 转回来
 list3 = list(set3)
-list3[list3.index(11)] = 20
+# list3[list3.index(11)] = 20
 set3 - set3
 print(set3)
 # 方法二先删除后添加
-set3.remove()
-set3.add(11)
+# set3.remove()
+# set3.add(11)
+
+print("asdasd asdasd".capitalize())

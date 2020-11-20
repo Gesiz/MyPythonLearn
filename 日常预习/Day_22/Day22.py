@@ -18,3 +18,15 @@
 #     print(data[0].decode("gb2312"))
 #     s.sendto(data[0], data[1])
 
+a = 'I love PythonSomething!'
+b = 'I love PythonSomething!'
+c = [1, 2, 3]
+d = [1, 2, 3]
+a = 'I love PythonSomething!'
+b = 'I love PythonSomething!'
+c = [1, 2, 3]
+d = [1, 2, 3]
+print(a is b)
+print(c is d)
+
+
