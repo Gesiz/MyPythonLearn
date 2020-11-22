@@ -62,21 +62,22 @@ def main():
             #     elif event.key == locals.K_SPACE:
             #         print("space")
         # 获取键盘的长按时间 返回的是元组
+
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[locals.K_LEFT]:
             h_x -= 5
             if h_x < 0:
                 h_x = 0
             print('left')
-        elif pressed_keys[locals.K_RIGHT]:
+        if pressed_keys[locals.K_RIGHT]:
             h_x += 5
             if h_x > window_width:
                 h_x = window_width - 120
             print('right')
-        elif pressed_keys[locals.K_UP]:
+        if pressed_keys[locals.K_UP]:
             h_y -= 5
             print('up')
-        elif pressed_keys[locals.K_DOWN]:
+        if pressed_keys[locals.K_DOWN]:
             h_y += 5
             print('down')
 
@@ -84,9 +85,7 @@ def main():
             bullet_img = pygame.image.load('res/bullet_9.png')
 
             b_x = h_x + 120 / 2 - 20 / 2
-
             b_y = h_y - 31
-
             buller_list.append([bullet_img, b_x, b_y])
             display(window)
             print('space')

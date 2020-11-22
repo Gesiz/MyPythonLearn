@@ -5,13 +5,13 @@
 
 # 索引
 # 元素中的单独字母
+import math
 
 s = "meet"
 #    0123
 #    -4-3-2-1
 print(f"第二位 + {s[2]}")
 print(f"第一位 + {s[-4]}")
-
 
 # 练习题1
 s = "alexdsb"
@@ -27,7 +27,7 @@ for i in range(0, len(s)):
 s = "今天是个好日子,今天星期五,明天不上班"
 # 1. 从做导游或取代 日子啊 今天
 # 2. 从右向左或取代 是个好日子啊
-print("\n"+s)
+print("\n" + s)
 print("s[5:11] " + s[5:11])
 print("s[-19:-15] " + s[-19:-15])
 print("s[-1:] " + s[-1] + "\n")
@@ -205,3 +205,36 @@ print(s[0:2])
 # 二进制转十进制 幂运算 码位
 # 使用计算机进行进制转换 10 -- 2 bin
 # 2 -- 10 int
+print(True)
+print(round(3.1))
+print(bool({}))
+
+a = 'I love PythonSomething!'
+b = 'I love PythonSomething!'
+c = [1, 2, 3]
+d = [1, 2, 3]
+print(a is b)
+print(c is d)
+
+a = 'a'
+print(a or 'b' or 123)
+
+
+def myfunc(*args, a=1):
+    print(args)
+    print(a)
+    pass
+
+def myfunc(a=1, **args):
+
+    pass
+
+def funcArgsTest(a,b,c=100,*argc,**kwarg):
+    print(c)
+    sum = a + b + c
+    for d in argc:
+        sum += d
+    for v in kwarg.values():
+        sum += v
+    return sum
+print(funcArgsTest(100,200,300,500,600,c=5000,aa=700,bb=900,cc=1000))
