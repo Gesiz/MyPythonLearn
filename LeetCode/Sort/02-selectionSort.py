@@ -17,13 +17,29 @@ iList = randomList(20)
 def selectionSort(iList):
     if len(iList) <= 1:
         return iList
-    for i in range(0, len(iList) - 1):
+    minIndex = 0
+    for i in range(0,len(iList)-1):
         if iList[i] != min(iList[i:]):
             minIndex = iList.index(min(iList[i:]))
-            iList[i], iList[minIndex] = iList[minIndex], iList[i]
+            iList[i],iList[minIndex] = iList[minIndex] ,iList[i]
 
     return iList
 
+
+
+
+
+
+# def selectionSort(iList):
+#     if len(iList) <= 1:
+#         return iList
+#     for i in range(0, len(iList) - 1):
+#         if iList[i] != min(iList[i:]):
+#             minIndex = iList.index(min(iList[i:]))
+#             iList[i], iList[minIndex] = iList[minIndex], iList[i]
+#
+#     return iList
+#
 
 # def selectionSort(iList):
 #     for i in range(1, len(iList) - 1):
