@@ -206,19 +206,19 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Pay(metaclass=ABCMeta):
+class Pay():#metaclass=ABCMeta
 
-    @abstractmethod  # 只要继承我的子类 先检查一遍 出错直接暂停
+    # @abstractmethod  # 只要继承我的子类 先检查一遍 出错直接暂停
     def pay(self):
         pass
-        # raise Exception("你没有定义pay函数")  # 主动报错
+        raise Exception("你没有定义pay函数")  # 主动报错
 
 
 class WechatPay(Pay):
 
-    def pay(self):
-        """微信支付"""
-        print("这是微信支付")
+    # def pay(self):
+    #     """微信支付"""
+    #     print("这是微信支付")
 
     def pay2(self):
         print(222)
