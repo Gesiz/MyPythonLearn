@@ -30,6 +30,28 @@ def my_find(source, target, start=0):
     return -1
 
 
-if __name__ == '__main__':
-    print(my_find('this is a book', 'a'))
+def my_replace(source, old_sub, new_sub):
+    """
+    将字符串里所有的oldsyb子串替换成newsub
+    @param source:
+    @param old_sub:
+    @param new_sub:
+    @return:
+    """
+    if not source or not old_sub:
+        return source
 
+    new_string = ""
+    start_index = 0
+    index = my_find(source, old_sub, start=start_index)
+    while index != -1:
+        new_string += source[start_index:index] + new_sub
+        start_index = index + len(old_sub)
+        index = my_find(source, old_sub, start=start_index)
+
+    new_string += source[start_index:]
+    return new_string
+
+
+if __name__ == '__main__':
+    print(my_replace('this is a book', 'this', 'b'))
