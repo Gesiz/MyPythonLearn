@@ -34,10 +34,10 @@ def udp_write(sock, addr):
 
 
 if __name__ == "__main__":
-    addr = ("192.168.79.2", 8888)
+    addr = ("192.168.144.25", 8888)
     lock = threading.Lock()
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    # s.bind(("", 8881))
+    s.bind(("", 8888))
     s.sendto("准备开始".encode("gb2312"), addr)
     t2 = threading.Thread(target=udp_write, args=(s, addr))
     t1 = threading.Thread(target=udp_read, args=(s,))

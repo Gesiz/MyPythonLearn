@@ -130,24 +130,26 @@
 # t.start()
 # t1.start()
 
-# import multiprocessing
+import multiprocessing
+
+
 #
 #
-# def func1():
-#     for i in range(10):
-#         print(123)
-#     return "运行结束"
-#
-#
-# def func2(tool):
-#     print(tool)
-#
-#
-# if __name__ == "__main__":
-#     po = multiprocessing.Pool()
-#     po.apply_async(func=func1, callback=func2)
-#     po.close()
-#     po.join()
+def func1():
+    for i in range(10):
+        print(123)
+    return "运行结束"
+
+
+def func2(tool):
+    print(tool)
+
+
+if __name__ == "__main__":
+    po = multiprocessing.Pool()
+    po.apply_async(func=func1, callback=func2)
+    po.close()
+    po.join()
 
 # 协程 比线程更小的执行单元
 # 一个线程作为一个容器里面可以放置多个协程
@@ -174,27 +176,23 @@
 # g2 = greenlet.greenlet(func2)
 # g1.switch()
 
-import gevent
-
-
-def func1():
-    while True:
-        print("111")
-        gevent.sleep(2)
-
-
-def func2():
-    while True:
-        print("222")
-        gevent.sleep(2)
-
-
-a1 = gevent.spawn(func1)
-a2 = gevent.spawn(func2)
-
-a1.join()
-a2.join()
-
-
-
-
+# import gevent
+#
+#
+# def func1():
+#     while True:
+#         print("111")
+#         gevent.sleep(2)
+#
+#
+# def func2():
+#     while True:
+#         print("222")
+#         gevent.sleep(2)
+#
+#
+# a1 = gevent.spawn(func1)
+# a2 = gevent.spawn(func2)
+#
+# a1.join()
+# a2.join()
