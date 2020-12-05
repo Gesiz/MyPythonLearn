@@ -5,23 +5,41 @@ iList = randomList(20)
 
 def countingSort(iList):
     ilen = len(iList)
-    if ilen <= 1:
-        return iList
-
-    mList = [None] * ilen
+    mList = ilen * [None]
     for i in range(ilen):
         same = 0
         small = 0
+
         for j in range(ilen):
-            if iList[i] > iList[j]:
+            if iList[j] > iList[i]:
                 small += 1
-            if iList[i] == iList[j]:
+            if iList[j] == iList[i]:
                 same += 1
 
-        for k in range(small, small + same):
+        for k in range(small, same + small):
             mList[k] = iList[i]
-
     return mList
+
+
+# def countingSort(iList):
+#     ilen = len(iList)
+#     if ilen <= 1:
+#         return iList
+#
+#     mList = [None] * ilen
+#     for i in range(ilen):
+#         same = 0
+#         small = 0
+#         for j in range(ilen):
+#             if iList[i] > iList[j]:
+#                 small += 1
+#             if iList[i] == iList[j]:
+#                 same += 1
+#
+#         for k in range(small, small + same):
+#             mList[k] = iList[i]
+#
+#     return mList
 
 
 # def countingSort(iList):

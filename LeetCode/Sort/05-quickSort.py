@@ -4,9 +4,8 @@ from randomList import randomList
 
 iList = randomList(20)
 
-
 def quickSort(iList):
-    if len(iList) <= 1:
+    if len(iList) <= 0:
         return iList
 
     left = []
@@ -17,6 +16,28 @@ def quickSort(iList):
         else:
             right.append(i)
     return quickSort(left) + [iList[0]] + quickSort(right)
+
+
+
+
+
+
+
+
+
+
+# def quickSort(iList):
+#     if len(iList) <= 1:
+#         return iList
+#
+#     left = []
+#     right = []
+#     for i in iList[1:]:
+#         if i <= iList[0]:
+#             left.append(i)
+#         else:
+#             right.append(i)
+#     return quickSort(left) + [iList[0]] + quickSort(right)
 
 
 # def quickSort(iList):

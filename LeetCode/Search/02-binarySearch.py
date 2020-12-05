@@ -62,7 +62,7 @@ if __name__ == "__main__":
     keys = [random.choice(iList), random.randrange(min(iList), max(iList))]
     for key in keys:
         res = binarySearch(iList, key)
-        if res >= 0:
+        if lex >= 0:
             print(f"{key} is in the list , index is {res}")
         else:
             print(f"{key} is not in the list")

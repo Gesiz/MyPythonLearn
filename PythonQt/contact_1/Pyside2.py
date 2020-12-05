@@ -1,7 +1,31 @@
+from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton,  QPlainTextEdit
+
+app = QApplication([])
+
+window = QMainWindow()
+window.resize(500, 400)
+window.move(300, 310)
+window.setWindowTitle('薪资统计')
+
+textEdit = QPlainTextEdit(window)
+textEdit.setPlaceholderText("请输入薪资表")
+textEdit.move(10,25)
+textEdit.resize(300,350)
+
+button = QPushButton('统计', window)
+button.move(380,80)
+
+window.show()
+
+app.exec_()
+
+
+
+
 # lesson 1
-# from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox
-#
-#
+from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox
+
+
 # class Stats():
 #     def __init__(self):
 #         self.window = QMainWindow()
@@ -120,62 +144,62 @@
 #
 # app.exec_()
 
-# !/usr/bin/env python3
-import sys
-import time
-import re
-import numpy as np
-import matplotlib.pyplot as plt
-from PySide2 import QtCore, QtWidgets
-
-if QtCore.qVersion() >= "5.":
-    from matplotlib.backends.backend_qt5agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-
-from matplotlib.figure import Figure
-
-
-class ApplicationWindow(QtWidgets.QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self._main = QtWidgets.QWidget()
-        self.setCentralWidget(self._main)
-        layout = QtWidgets.QVBoxLayout(self._main)
-
-        static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-        layout.addWidget(static_canvas)
-        self.addToolBar(NavigationToolbar(static_canvas, self))
-
-        with open('20200830_180146RTLS_log.txt') as fin:
-            text = fin.read();
-            regex = r':\[([\s\S]*?)\]:'
-            matches = re.findall(regex, text)
-            strsx = []
-            strsy = []
-            strsz = []
-            for match in matches:
-                words = match.split(',')
-                strsx.append(words[0])
-                strsy.append(words[1])
-                strsz.append(words[2])
-
-        x1 = list(map(float, strsx))
-        y1 = list(map(float, strsy))
-
-        self._static_ax = static_canvas.figure.subplots()
-
-        self._static_ax.plot(x1, y1, '-r', label='A', linewidth=5.0)
-
-
-if __name__ == "__main__":
-    # Check whether there is already a running QApplication (e.g., if running
-    # from an IDE).
-    qapp = QtWidgets.QApplication.instance()
-    if not qapp:
-        qapp = QtWidgets.QApplication(sys.argv)
-
-    app = ApplicationWindow()
-    app.show()
-    app.activateWindow()
-    app.raise_()
-    qapp.exec_()
+# # !/usr/bin/env python3
+# import sys
+# import time
+# import re
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from PySide2 import QtCore, QtWidgets
+#
+# if QtCore.qVersion() >= "5.":
+#     from matplotlib.backends.backend_qt5agg import (
+#         FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+#
+# from matplotlib.figure import Figure
+#
+#
+# class ApplicationWindow(QtWidgets.QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self._main = QtWidgets.QWidget()
+#         self.setCentralWidget(self._main)
+#         layout = QtWidgets.QVBoxLayout(self._main)
+#
+#         static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
+#         layout.addWidget(static_canvas)
+#         self.addToolBar(NavigationToolbar(static_canvas, self))
+#
+#         with open('20200830_180146RTLS_log.txt') as fin:
+#             text = fin.read();
+#             regex = r':\[([\s\S]*?)\]:'
+#             matches = re.findall(regex, text)
+#             strsx = []
+#             strsy = []
+#             strsz = []
+#             for match in matches:
+#                 words = match.split(',')
+#                 strsx.append(words[0])
+#                 strsy.append(words[1])
+#                 strsz.append(words[2])
+#
+#         x1 = list(map(float, strsx))
+#         y1 = list(map(float, strsy))
+#
+#         self._static_ax = static_canvas.figure.subplots()
+#
+#         self._static_ax.plot(x1, y1, '-r', label='A', linewidth=5.0)
+#
+#
+# if __name__ == "__main__":
+#     # Check whether there is already a running QApplication (e.g., if running
+#     # from an IDE).
+#     qapp = QtWidgets.QApplication.instance()
+#     if not qapp:
+#         qapp = QtWidgets.QApplication(sys.argv)
+#
+#     app = ApplicationWindow()
+#     app.show()
+#     app.activateWindow()
+#     app.raise_()
+#     qapp.exec_()
