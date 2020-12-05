@@ -26,10 +26,14 @@ client_socket, client_addr = tcp_server_socket.accept()
 
 # 返回值是一个月租(有两个元素): 元素 1 和客户端进行同学的socket 元素2 客户端地址信息 IP PORT
 # 5 接收数据
-client_data = client_socket.recv(1024).decode()
-print(client_data)
-# 6 发送数据
-client_socket.send(client_data.encode())
+while True:
+    client_data = client_socket.recv(1024).decode()
+    if len(client_data) == 0:
+        print("客户端关闭了")
+        break
+    print(client_data)
+    # 6 发送数据
+    client_socket.send(client_data.encode())
 # 7 关闭套接字
 client_socket.close()
 tcp_server_socket.close()

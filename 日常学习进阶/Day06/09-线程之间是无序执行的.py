@@ -1,8 +1,11 @@
 import time
 import threading
+import sys
 def dance():
     time.sleep(1)
-    print(threading.current_thread())
+    sys.stdin.flush()
+    print(threading.current_thread().name)
+    sys.stdin.flush()
 
 
 # 注意线程执行的是没有顺序的
