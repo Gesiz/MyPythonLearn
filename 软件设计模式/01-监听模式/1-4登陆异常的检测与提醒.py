@@ -21,7 +21,7 @@ class Observable:  # 可观察的
 
     def notifyObserver(self, object=0):
         for o in self.__observers:
-            o.update(self, object)
+            o.update(self, None, object)
 
 
 class Account(Observable):
@@ -35,7 +35,7 @@ class Account(Observable):
     def login(self, name, ip, time):
         region = self.__getRegion(ip)
         if self.__isLongDistance(name, region):
-            self.notifyObserver(object= {"name": name, "ip": ip, "region": region, "time": time})
+            self.notifyObserver(object={"name": name, "ip": ip, "region": region, "time": time})
         self.__latestRegion[name] = region
         self.__latestIp[name] = ip
 
@@ -56,7 +56,7 @@ class Account(Observable):
 
 
 class Smssender(Observer):
-    def update(self, object):
+    def update(self, observable, object):
         print(f'[短信发送] {object["name"]} 您好！ 检测到您的账户可能存在异常 最近一次的登录信息:\n'
               f'登录信息 {object["region"]}'
               f'登录IP  {object["ip"]}'
@@ -66,7 +66,7 @@ class Smssender(Observer):
 class MailSender(Observer):
     """邮件发送器"""
 
-    def update(self, object):
+    def update(self, observable, object):
         print(f'[邮件发送] {object["name"]} 您好！ 检测到您的账户可能存在异常 最近一次的登录信息:\n'
               f'登录信息 {object["region"]}'
               f'登录IP  {object["ip"]}'
@@ -79,6 +79,7 @@ def testLogin():
     accout.addObserver(MailSender)
     accout.login("Tony", "101.47.18.9", time.time())
     accout.login("Tony", "67.218.147.69", time.time())
+
 
 if __name__ == '__main__':
     testLogin()
