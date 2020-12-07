@@ -21,7 +21,7 @@ class Observable:  # 可观察的
 
     def notifyObserver(self, object=0):
         for o in self.__observers:
-            o.update(self, None, object)
+            o.update(self, object)
 
 
 class Account(Observable):
@@ -35,7 +35,7 @@ class Account(Observable):
     def login(self, name, ip, time):
         region = self.__getRegion(ip)
         if self.__isLongDistance(name, region):
-            self.notifyObserver(object={"name": name, "ip": ip, "region": region, "time": time})
+            self.notifyObserver({"name": name, "ip": ip, "region": region, "time": time})
         self.__latestRegion[name] = region
         self.__latestIp[name] = ip
 
@@ -75,9 +75,10 @@ class MailSender(Observer):
 
 def testLogin():
     accout = Account()
-    accout.addObserver(Smssender)
-    accout.addObserver(MailSender)
+    accout.addObserver(Smssender())
+    accout.addObserver(MailSender())
     accout.login("Tony", "101.47.18.9", time.time())
+    time.sleep(2)
     accout.login("Tony", "67.218.147.69", time.time())
 
 
