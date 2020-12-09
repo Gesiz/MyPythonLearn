@@ -5,7 +5,7 @@ from randomList import randomList
 iList = randomList(20)
 
 def quickSort(iList):
-    if len(iList) <= 0:
+    if len(iList) <= 1:
         return iList
 
     left = []
@@ -15,6 +15,7 @@ def quickSort(iList):
             left.append(i)
         else:
             right.append(i)
+
     return quickSort(left) + [iList[0]] + quickSort(right)
 
 
