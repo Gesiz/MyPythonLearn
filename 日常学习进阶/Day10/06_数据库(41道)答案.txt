@@ -1,0 +1,458 @@
+概念题1: 什么是数据库管理系统?
+	参考答案: 简称DBMS, 是为管理数据库而设计的软件系统.
+		主要有三部分:
+			1. 数据库文件集合: 主要是一系列的数据文件, 作用是存储数据;
+			2. 数据库服务器: 主要负责对数据文件以及文件中的数据进行管理;
+			3. 数据库客户端: 主要负责与服务端进行通信, 向服务端传输数据或者从服务端获取数据.
+		
+概念题2: MySQL数据类型和Python类型有什么区别?
+	参考答案: 
+		相同点: MySQL和Python都支持多种数据类型.
+		不同点: Python基本数据类型有数字int、布尔值bool、字符串str、列表list、元组tuple、字典dict等;
+				MySQL基本数据类型大致可以分为三类：数值、日期/时间和字符串(字符)类型
+					1. 数值型包括整数类型(TINYINT、SMALLINT、MEDIUMINT、INT和BIGINT)和浮点型(FLOAT和DOUBLE);
+					2. 日期/时间类型包括DATETIME、DATE、TIME等;
+					3. 字符串类型包括CHAR、VARCHAR、TEXT等.
+
+概念题3: 数据库的约束有什么作用?
+	参考答案: 数据完整性是指数据的正确性和相容性, 是为了防止数据库中存在不符合语义的数据，即防止数据库中存在不正确的数据, MySQL中提供了多种完整性约束.
+	1. PRIMARY KEY: 主键约束(唯一性, 非空性);
+	2. UNIQUE: 唯一约束(唯一性, 可以为空, 但只能有一个为空);
+	3. NOT NULL: 非空约束(能不能为空);
+	4. DEFAULT: 默认约束(该数据的默认值);
+	5. FOREIGN KEY: 外键约束(需要建立两表间的关系).
+	
+操作题一: 
+1. 创建班级classes表信息如下:
+
++----+------+
+| id | name |
++----+------+
+|  1 | 1班  |
+|  2 | 2班  |
+|  3 | 3班  |
+|  4 | 4班  |
++----+------+
+
+
+create table classes(
+    id int unsigned primary key auto_increment not null,
+    name varchar(20) not null
+);
+
+
+insert into classes values
+(0,'1班'),
+(0,'2班'),
+(0,'3班'),
+(0,'4班');
+
+2. 创建学生students表信息如下:
++-----------+--------------+------+----------+------+----------+--------------------+
+| studentNo | name         | sex  | hometown | age  | class_id | card               |
++-----------+--------------+------+----------+------+----------+--------------------+
+|         1 | 王昭君       | 女   | 北京     |   20 |        1 | 340322199001247654 |
+|         2 | 诸葛亮       | 男   | 上海     |   18 |        2 | 340322199002242354 |
+|         3 | 张飞         | 男   | 南京     |   24 |        3 | 340322199003247654 |
+|         4 | 白起         | 男   | 安徽     |   22 |        4 | 340322199005247654 |
+|         5 | 大乔         | 女   | 天津     |   19 |        3 | 340322199004247654 |
+|         6 | 孙尚香       | 女   | 河北     |   18 |        1 | 340322199006247654 |
+|         7 | 百里玄策     | 男   | 山西     |   20 |        2 | 340322199007247654 |
+|         8 | 小乔         | 女   | 河南     |   15 |        3 | NULL               |
+|         9 | 百里守约     | 男   | 湖南     |   21 |        1 |                    |
+|        10 | 妲己         | 女   | 广东     |   26 |        2 | 340322199607247654 |
+|        11 | 李白         | 男   | 北京     |   30 |        4 | 340322199005267754 |
+|        12 | 孙膑         | 男   | 新疆     |   26 |        3 | 340322199000297655 |
++-----------+--------------+------+----------+------+----------+--------------------+
+
+create table students (
+  studentNo int unsigned primary key auto_increment not null,
+  name varchar(10),
+  sex enum('男','女'),
+  hometown varchar(20),
+  age tinyint(4),
+  class_id int not null,
+  card varchar(20)
+);
+
+insert into students (name,sex,hometown,age,class_id,card)values
+('王昭君', '女', '北京', 20, 1, '340322199001247654'),
+('诸葛亮', '男', '上海', 18, 2, '340322199002242354'),
+('张飞', '男', '南京', 24, 3, '340322199003247654'),
+('白起', '男', '安徽', 22, 4, '340322199005247654'),
+('大乔', '女', '天津', 19, 3, '340322199004247654'),
+('孙尚香', '女', '河北', 18, 1, '340322199006247654'),
+('百里玄策', '男', '山西', 20, 2, '340322199007247654'),
+('小乔', '女', '河南', 15, 3, null),
+('百里守约', '男', '湖南', 21, 1, ''),
+('妲己', '女', '广东', 26, 2, '340322199607247654'),
+('李白', '男', '北京', 30, 4, '340322199005267754'),
+('孙膑', '男', '新疆', 26, 3, '340322199000297655');
+
+查询
+1、查询学生"百里守约"的基本信息
+select * from students where name='百里守约';
+
+
+2、查询学生"百里守约"或”百里玄策”的基本信息
+select * from students where name='百里守约' or name='百里玄策';
+
+
+3、查询姓"张"学生的姓名，年龄，班级
+select name,age,class_id from students where name like '张%';
+
+
+4、查询姓名中含有"约"字的学生的基本信息
+select * from students where name like '%约%';
+
+
+5、查询姓名长度为三个字，姓“孙”的学生的学号，姓名，年龄，班级，身份证号
+select studentNo,name,age,class_id,card from students where name like '孙__'; 
+
+
+6、查询姓"百"或者姓”孙”的学生的基本信息
+select * from students where name like '百%' or name like '孙%';
+
+
+7、查询姓"百"并且家乡是"山西"的学生信息
+select * from students where name like '百%' and hometown='山西';
+
+
+8、查询家乡是"北京"、”新疆”、”山东”或者"上海"的学生的信息
+select * from students where hometown in('北京','新疆','山东','上海');
+
+
+9、查询姓"孙"，但是家乡不是"河北"的学生信息
+select * from students where name like '孙%' and hometown!='河北';
+
+
+10、查询家乡不是"北京"、"新疆"、"山东"、"上海"的学生的信息
+select * from students where hometown not in('北京','新疆','山东','上海');
+
+
+11、查询全部学生信息，并按照“性别”排序
+select * from students order by sex;
+
+
+12、查询现有学生都来自于哪些不同的省份
+select hometown from students group by hometown;
+
+
+13、查询所有男生，并按年龄升序排序
+select * from students where sex='男' order by age;
+
+
+14、统计共有多少个学生
+select count(*) from students;
+
+
+15、统计年龄大于20岁的学生有多少个
+select count(*) from students where age>20;
+
+
+16、统计男生的平均年龄
+select avg(age) from students where sex='男';
+
+
+17、查询1班学生中的最大年龄是多少
+select max(age) from students where class_id=1;
+
+
+18、统计2班男女生各有多少人
+select class_id,sex,count(*) from students where class_id=2 group by sex;
+
+
+19、统计每个班级中每种性别的学生人数，并按照班级升序排序
+select class_id,sex,count(*) from students group by class_id,sex order by class_id;
+
+
+20、查询年龄最小的学生的全部信息
+select * from students order by age limit 1;
+
+
+操作题二:
+
+1. 创建book表储存图书信息如下:
+
++----+-----------------+---------------------+-------+
+| id | name            | pub_date            | price |
++----+-----------------+---------------------+-------+
+|  1 | 射雕英雄传      | 1970-05-01 00:00:00 | 36.60 |
+|  2 | 天龙八部        | 1986-07-24 00:00:00 | 50.20 |
+|  3 | 笑傲江湖        | 1995-12-24 00:00:00 | 40.00 |
+|  4 | 雪山飞狐        | 1987-11-11 00:00:00 | 29.00 |
++----+-----------------+---------------------+-------+
+
+create table book(
+    id int unsigned primary key auto_increment not null,
+    name varchar(20) default '',
+    pub_date datetime,
+    price decimal(5,2)
+);
+
+insert into book values
+(0,'射雕英雄传','1970-5-1',36.60),
+(0,'天龙八部','1986-7-24',50.20),
+(0,'笑傲江湖','1995-12-24',40),
+(0,'雪山飞狐','1987-11-11',29);
+
+2. 创建heroes表储存英雄信息如下:
+
++----+--------------+------+--------+-----------------+---------+
+| id | name         | age  | gender | skill           | book_id |
++----+--------------+------+--------+-----------------+---------+
+|  1 | 郭靖         |   30 | 男     | 降龙十八掌      |       1 |
+|  2 | 黄蓉         |   30 | 女     | 打狗棍法        |       1 |
+|  3 | 黄药师       |   60 | 男     | 弹指神通        |       1 |
+|  4 | 欧阳锋       |   65 | 男     | 蛤蟆功          |       1 |
+|  5 | 梅超风       |   40 | 女     | 九阴白骨爪      |       1 |
+|  6 | 乔峰         |   33 | 男     | 降龙十八掌      |       2 |
+|  7 | 段誉         |   25 | 男     | 六脉神剑        |       2 |
+|  8 | 虚竹         |   27 | 男     | 天山六阳掌      |       2 |
+|  9 | 王语嫣       |   18 | 女     | 神仙姐姐        |       2 |
+| 10 | 令狐冲       |   32 | 男     | 独孤九剑        |       3 |
+| 11 | 任盈盈       |   24 | 女     | 弹琴            |       3 |
+| 12 | 岳不群       |   50 | 保密   | 华山剑法        |       3 |
+| 13 | 东方不败     |   99 | 中性   | 葵花宝典        |       3 |
+| 14 | 胡斐         |   26 | 男     | 胡家刀法        |       4 |
+| 15 | 苗若兰       |   16 | 女     | 黄衣            |       4 |
+| 16 | 程灵素       |   20 | 女     | 医术            |       4 |
+| 17 | 袁紫衣       |   22 | 女     | 六合拳          |       4 |
++----+--------------+------+--------+-----------------+---------+
+
+
+create table heroes(
+    id int unsigned primary key auto_increment not null,
+    name varchar(20) default '',
+    age tinyint unsigned default 0,
+    gender enum('男','女','中性','保密') default '保密',
+    skill varchar(20) default '',
+    book_id int not null
+);
+
+
+insert into heroes (name,age,gender,skill,book_id) values
+('郭靖',30,'男','降龙十八掌',1),
+('黄蓉',30,'女','打狗棍法',1),
+('黄药师',60,'男','弹指神通',1),
+('欧阳锋',65,'男','蛤蟆功',1),
+('梅超风',40,'女','九阴白骨爪',1),
+('乔峰',33,'男','降龙十八掌',2),
+('段誉',25,'男','六脉神剑',2),
+('虚竹',27,'男','天山六阳掌',2),
+('王语嫣',18,'女','神仙姐姐',2),
+('令狐冲',32,'男','独孤九剑',3),
+('任盈盈',24,'女','弹琴',3),
+('岳不群',50,default,'华山剑法',3),
+('东方不败',99,'中性','葵花宝典',3),
+('胡斐',26,'男','胡家刀法',4),
+('苗若兰',16,'女','黄衣',4),
+('程灵素',20,'女','医术',4),
+('袁紫衣',22,'女','六合拳',4);
+
+3. 修改book表pub_date字段类型为date类型
+
+alter table book modify pub_date date;
+
+
+4. 查询所有的英雄信息以及对应的书名
+select h.*,b.name from heroes as h inner join book as b on h.book_id = b.id;
+
+5. 查询80年代出版的书中所有的女性英雄信息以及对应的书的信息
+select * from heroes as h inner join book as b on  h.book_id=b.id and b.pub_date>'1980' and b.pub_date<'1990' and h.gender='女';
+或
+select * from heroes as h inner join book as b on  h.book_id=b.id and (year(b.pub_date) between 1980 and 1990) and h.gender='女';
+
+6. 查出会"降龙十八掌"的英雄名字以及对应的书名
+select h.name as "英雄", b.name as "书名" from heroes as h inner join book as b on h.book_id=b.id and h.skill="降龙十八掌";
+
+7. 查询每本书中英雄年龄的平均值
+select floor(avg(h.age)), b.name from heroes as h inner join book as b on h.book_id=b.id  group by h.book_id;
+或
+select floor(avg(h.age)), b.name from heroes as h inner join book as b on h.book_id=b.id  group by b.name;
+
+8. 查询每本书中年纪最大的英雄
+select h.name as "英雄",h.age,b.name as "书名" from heroes as h inner join (select max(age) as mage, book_id as bid from heroes group by book_id) as m inner join book as b on h.age=m.mage and m.bid=b.id;
+
+
+操作题三:
+1.创建一张student表如下:
++----+--------+
+| id | name   |
++----+--------+
+|  1 | 张三   |
+|  2 | 李四   |
+|  3 | 王五   |
+|  4 | 赵六   |
+|  5 | 田七   |
++----+--------+
+
+create table student(
+	id int unsigned primary key auto_increment not null, 
+	name varchar(20) not null comment '学生姓名'
+);
+
+insert into student values(0,'张三'),(0,'李四'),(0,'王五'),(0,'赵六'),(0,'田七');
+
+
+2.创建一张course表如下:
++----+--------+
+| id | name   |
++----+--------+
+|  1 | 语文   |
+|  2 | 数学   |
+|  3 | 英语   |
+|  4 | 物理   |
+|  5 | 化学   |
+|  6 | 历史   |
+|  7 | 地理   |
++----+--------+
+
+create table course(
+	id int unsigned primary key auto_increment not null, 
+	name varchar(20) not null comment '课程名称'
+);
+
+insert into course values
+	(0,'语文'),
+	(0,'数学'),
+	(0,'英语'),
+	(0,'物理'),
+	(0,'化学'),
+	(0,'历史'),
+	(0,'地理');
+
+
+3.创建一张中间表stu_cour表如下:
++--------+---------+
+| stu_id | cour_id |
++--------+---------+
+|      1 |       1 |
+|      1 |       2 |
+|      1 |       3 |
+|      1 |       4 |
+|      2 |       1 |
+|      2 |       2 |
+|      2 |       3 |
+|      2 |       5 |
+|      3 |       1 |
+|      3 |       2 |
+|      3 |       3 |
+|      3 |       7 |
+|      4 |       1 |
+|      4 |       2 |
+|      4 |       3 |
+|      4 |       4 |
+|      5 |       1 |
+|      5 |       2 |
+|      5 |       3 |
+|      5 |       5 |
++--------+---------+
+
+create table stu_cour(
+	stu_id int comment '学生id',
+	cour_id int comment '课程id',
+	primary key(stu_id,cour_id)
+);
+
+insert into stu_cour values
+	(1,1),(1,2),(1,3),(1,4),
+	(2,1),(2,2),(2,3),(2,5),
+	(3,1),(3,2),(3,3),(3,7),
+	(4,1),(4,2),(4,3),(4,4),
+	(5,1),(5,2),(5,3),(5,5);
+
+4.查询张三选了那些课程
+select c.name from student as s inner join stu_cour as sc inner join course as c  on s.id = sc.stu_id and c.id = sc.cour_id and s.name='张三';
+
+5.查询选物理课程的学生有哪些
+select s.name from student as s inner join stu_cour as sc inner join course as c  on s.id = sc.stu_id and c.id = sc.cour_id and c.name='物理';
+
+6.查询已经被选过的课程有哪些
+select c.name from course as c  inner join stu_cour as sc  on c.id = sc.cour_id  group by sc.cour_id;
+
+7.查询还没有被选过的课程有哪些
+select name from course where id not in (select c.id from course as c  inner join stu_cour as sc  on c.id = sc.cour_id  group by sc.cour_id);
+
+
+
+操作题四:
+1. 创建MySQL数据库test，并创建student表添加如下数据：
++----+--------+---------+-------+
+| id | name   | subject | score |
++----+--------+---------+-------+
+|  1 | 张三   | 语文    |    90 |
+|  2 | 张三   | 数学    |    80 |
+|  3 | 张三   | 英语    |    60 |
+|  4 | 李四   | 语文    |    75 |
+|  5 | 李四   | 数学    |    85 |
+|  6 | 李四   | 英语    |    45 |
+|  7 | 王五   | 语文    |    99 |
+|  8 | 王五   | 数学    |    55 |
+|  9 | 王五   | 英语    |    59 |
+| 10 | 赵六   | 语文    |    88 |
+| 11 | 赵六   | 数学    |    88 |
+| 12 | 赵六   | 英语    |    70 |
+| 13 | 田七   | 语文    |    77 |
+| 14 | 田七   | 数学    |   100 |
+| 15 | 田七   | 英语    |    90 |
++----+--------+---------+-------+
+
+参考答案：
+create table student(
+    id int unsigned auto_increment primary key not null,
+    name varchar(10),
+    subject varchar(10),
+    score int);
+insert into student values(0, '张三', '语文', 90);
+insert into student values(0, '张三', '数学', 80);
+insert into student values(0, '张三', '英语', 60);
+insert into student values(0, '李四', '语文', 75);
+insert into student values(0, '李四', '数学', 85);
+insert into student values(0, '李四', '英语', 45);
+insert into student values(0, '王五', '语文', 99);
+insert into student values(0, '王五', '数学', 55);
+insert into student values(0, '王五', '英语', 59);
+insert into student values(0, '赵六', '语文', 88);
+insert into student values(0, '赵六', '数学', 88);
+insert into student values(0, '赵六', '英语', 70);
+insert into student values(0, '田七', '语文', 77);
+insert into student values(0, '田七', '数学', 100);
+insert into student values(0, '田七', '英语', 90);
+
+2. 写一条select语句：查询含有不及格科目的学生，其平均分（所有科目的平均分）以及不及格科目数量。
+
+参考答案：
+select name,avg(score),sum(score<60) as count from student group by name having count >= 1;
+或
+select name,avg(score),sum(score<60) from student where name in (select name from student where score<60) group by name;
+或
+select a.name,a.avg_count,b.count from 
+(select name,avg(score) as avg_count from student group by name) as a 
+inner join (select name,count(*) as count from student where score<60 group by name) as b 
+on a.name=b.name;
+          
++------+------------+-----+
+| name | avg(score) |count|
++------+------------+-----+
+| 李四 | 68.3333    | 1   |
+| 王五 | 71.0000    | 2   |
++------+------------+-----+
+2 rows in set
+
+3. 写一条select语句：查询每个学生的最大分数的科目及分数。
+
+参考答案：
+select a.* from student as a inner join (select name,max(score) as c from student group by name) as b on a.name=b.name and a.score=b.c;
+
++----+--------+---------+-------+
+| id | name   | subject | score |
++----+--------+---------+-------+
+|  1 | 张三   | 语文    |    90 |
+|  5 | 李四   | 数学    |    85 |
+|  7 | 王五   | 语文    |    99 |
+| 10 | 赵六   | 语文    |    88 |
+| 11 | 赵六   | 数学    |    88 |
+| 14 | 田七   | 数学    |   100 |
++----+--------+---------+-------+
+6 rows in set (0.01 sec)
