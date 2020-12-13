@@ -165,10 +165,14 @@ func(1)
 
 meet = ["1", "2", ["3", "4", ["5", "6"]]]
 
+meet = [1, [1, 2, 3], 3, [1, 2, [4, 5, 6]]]
+
+for i in meet:
+    print(i)
 
 def func(m):
     for i in m:
-        if type(m) == list:
+        if type(i) == list:
             func(i)
         else:
             print(i)
