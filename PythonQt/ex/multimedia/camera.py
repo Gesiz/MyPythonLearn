@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
 
         fileMenu = self.menuBar().addMenu("&File")
         shutterIcon = QIcon(os.path.join(os.path.dirname(__file__),
-                            "shutter.svg"))
+                                         "shutter.svg"))
         self.takePictureAction = QAction(shutterIcon, "&Take Picture", self,
                                          shortcut="Ctrl+T",
                                          triggered=self.takePicture)

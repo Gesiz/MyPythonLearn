@@ -271,7 +271,7 @@ def python_link_data():
     libdir = sysconfig.get_config_var('LIBDIR')
     if libdir is None:
         libdir = os.path.abspath(os.path.join(
-            sysconfig.get_config_var('LIBDEST'), "..", "libs"))
+            sysconfig.get_config_var('LIBDEST'), "../..", "libs"))
     version = python_version()
     version_no_dots = version.replace('.', '')
 

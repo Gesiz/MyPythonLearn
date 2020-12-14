@@ -27,6 +27,7 @@ conda info -e
 conda env list
 
 pip install pyside2 -i https://pypi.douban.com/simple/
+pip install numpy==1.19 -i https://pypi.douban.com/simple/
 ```
 
 

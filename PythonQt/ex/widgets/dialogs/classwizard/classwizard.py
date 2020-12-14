@@ -41,7 +41,7 @@
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-import classwizard_rc
+# import classwizard_rc
 
 
 class ClassWizard(QtWidgets.QWizard):

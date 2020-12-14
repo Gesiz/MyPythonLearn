@@ -128,7 +128,7 @@ class MainWindow(QMainWindow):
 
     def save(self):
         filename, _ = QFileDialog.getSaveFileName(self,
-                "Choose a file name", '.', "HTML (*.html *.htm)")
+                "Choose a file name", '', "HTML (*.html *.htm)")
         if not filename:
             return
 
