@@ -170,6 +170,7 @@ meet = [1, [1, 2, 3], 3, [1, 2, [4, 5, 6]]]
 for i in meet:
     print(i)
 
+
 def func(m):
     for i in m:
         if type(i) == list:

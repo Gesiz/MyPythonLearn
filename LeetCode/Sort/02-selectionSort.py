@@ -19,7 +19,6 @@ def selectionSort(iList):
         return iList
     minIndex = 0
     for i in range(0, len(iList)):
-
         if iList[i] != min(iList[i:]):
             minIndex = iList.index(min(iList[i:]))
             iList[minIndex], iList[i] = iList[i], iList[minIndex]
