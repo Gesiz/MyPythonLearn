@@ -6,9 +6,9 @@ conn = pymysql.connect(host='192.168.158.133', user='root', password='mysql', da
 cur = conn.cursor()
 
 # 执行sql
-sql = "update goods set price=99 where id=1"
-cur.execute(sql)
-conn.commit()
+# sql = "update goods set price=99 where id=1"
+# cur.execute(sql)
+# conn.commit()
 sql = "select * from goods;"
 cur.execute(sql)
 

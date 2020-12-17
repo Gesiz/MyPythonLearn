@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import time
 # 导入时间处理模块
 from abc import ABCMeta, abstractmethod

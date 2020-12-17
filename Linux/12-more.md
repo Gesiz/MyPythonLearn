@@ -20,7 +20,7 @@ more [-dlfpcsu] [-num] [+/ pattern] [+ linenum] [file]
 	Enter 向下n行 需要定义 默认为1行
 	Ctrl + F 向下滚动一屏
 	空格键 向下滚动一屏
-	Ctrl + B 返回上衣屏
+	Ctrl + B 返回上一屏
 	= 输出当前行的行号
 	:f 输出文件名 和当前行的行号
 	V 调用vi编辑器

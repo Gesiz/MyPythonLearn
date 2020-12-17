@@ -1,6 +1,11 @@
 # 进程间通信
 # 队列 Queue
 """
+管道 subprocess
+    stdio stdout stderr
+
+队列   = 管道 + 锁
+
 队列 先进先出
 堆栈 先进后出
 """
