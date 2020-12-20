@@ -5,13 +5,14 @@
 3 调用子类方法
 """
 
-
+from abc import ABCMeta,abstractmethod
 # 定义动物类
-class Animal:
+class Animal(metaclass=ABCMeta):
 
+    @abstractmethod
     def call(self):
-        print("叫")
-        raise Exception("有问题")
+        pass
+        # raise Exception("有问题")
 
 
 
@@ -50,5 +51,5 @@ do_call(cat)
 # 第二种方式 优化后
 do_call(Dog())
 do_call(Cat())
-# do_call(Pig())
+do_call(Pig())
 p = Pig()

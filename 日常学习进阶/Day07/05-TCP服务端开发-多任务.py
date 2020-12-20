@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # 端口复用操作
     # 参数 1 socket 选项列表
     # 参数 2 地址复用
-    tcp_server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+    # tcp_server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
     # 2 绑定端口号
     # 参数 元组(两个元素)
     # 参数: 元组(两个元素) 元素1:IP地址(字符串) 元素 2 端口号(数字)
@@ -46,3 +46,4 @@ if __name__ == '__main__':
     # 7 关闭套接字
     client_socket.close()
     tcp_server_socket.close()
+

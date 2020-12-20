@@ -10,6 +10,7 @@ def func():
         time.sleep(0.2)
         print("func")
 
+
 if __name__ == '__main__':
     # 程序一旦运行 就会默认创建主进程
     # 主进程会等待子进程结束之后在结束
