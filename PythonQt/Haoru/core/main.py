@@ -64,6 +64,7 @@ class WidgetGraph:
 
         self.dynamic_canvas.mpl_connect("button_release_event", self._on_left_click)  # 连接信号
         self.dynamic_canvas.mpl_connect('scroll_event', self._on_wheel)
+        # self.dynamic_canvas.mpl_connect('resize_event', self._on_pick)
 
         self._dynamic_ax = self.dynamic_canvas.figure.subplots()
 
@@ -83,12 +84,15 @@ class WidgetGraph:
         self._line.figure.canvas.draw()
 
     def _on_left_click(self, event):
-        print(event.button)
+        print(event)
         pass
 
     def _on_wheel(self, event):
-        print(event.button)
+        print(event)
         pass
+
+    # def _on_pick(self, event):
+    #     print(event)
 
 
 if __name__ == '__main__':
