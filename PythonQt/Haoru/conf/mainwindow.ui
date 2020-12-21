@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>902</width>
-    <height>621</height>
+    <width>1080</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>402</width>
+      <width>281</width>
       <height>146</height>
      </rect>
     </property>
@@ -262,8 +262,8 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>0</y>
+      <x>160</x>
+      <y>640</y>
       <width>68</width>
       <height>22</height>
      </rect>
@@ -274,7 +274,7 @@
      <rect>
       <x>0</x>
       <y>150</y>
-      <width>401</width>
+      <width>271</width>
       <height>301</height>
      </rect>
     </property>
@@ -300,8 +300,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>0</y>
+      <x>50</x>
+      <y>640</y>
       <width>75</width>
       <height>24</height>
      </rect>
@@ -313,9 +313,9 @@
    <widget class="QTableWidget" name="tableWidget_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>460</y>
-      <width>946</width>
+      <width>211</width>
       <height>141</height>
      </rect>
     </property>
@@ -379,10 +379,10 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>50</y>
-      <width>441</width>
-      <height>381</height>
+      <x>310</x>
+      <y>10</y>
+      <width>761</width>
+      <height>681</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -393,7 +393,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>902</width>
+     <width>1080</width>
      <height>22</height>
     </rect>
    </property>
