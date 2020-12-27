@@ -6,7 +6,9 @@ from matplotlib.lines import Line2D
 from matplotlib.artist import Artist
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
+import matplotlib
 
+matplotlib.use('Qt5Agg')
 
 class Point_Move:
     showverts = True
@@ -21,12 +23,12 @@ class Point_Move:
         self.ax.set_xlim((-2, 4))
         self.ax.set_ylim((-2, 4))
         # 设置初始值
-        self.x = [1,2]
-        self.y = [1,2]
+        self.x = [1,2,3]
+        self.y = [1,2,3]
         # 绘制2D的动画line
         self.line = Line2D(self.x, self.y, ls="",
                            marker='o', markerfacecolor='r',
-                           animated=True)
+                           animated=True,markersize=20)
         self.ax.add_line(self.line)
         # 标志值设为none
         self._ind = None
@@ -76,6 +78,7 @@ class Point_Move:
     # 鼠标移动的事件
     def motion_notify_callback(self, event):
         'on mouse movement'
+        print(event)
         if not self.showverts: return
         if self._ind is None: return
         if event.inaxes is None: return
@@ -87,7 +90,7 @@ class Point_Move:
         # 根据更新的数值，重新绘制图形
         self.line = Line2D(self.x, self.y, ls="",
                            marker='o', markerfacecolor='r',
-                           animated=True)
+                           animated=True,markersize=20)
         self.ax.add_line(self.line)
         # 恢复背景
         self.canvas.restore_region(self.background)

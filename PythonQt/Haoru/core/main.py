@@ -2,6 +2,9 @@ import re
 import sys
 import time
 
+import cv2
+
+import serial.tools.list_ports
 from PySide6.QtCore import *
 # from PySide6.QtGui import *
 # from PySide6.QtWidgets import *
@@ -9,15 +12,26 @@ from PySide6.QtGui import QAction
 from PySide2 import QtWidgets
 from PySide6.QtWidgets import QGraphicsView
 from PySide2.QtWidgets import QMainWindow, QGraphicsScene, QTableWidgetItem
+from matplotlib.ticker import MultipleLocator
+
 from conf.mainwindow import Ui_MainWindow
 from PySide6.QtUiTools import QUiLoader
 import pyqtgraph as pg
 import numpy as np
 from pyqtgraph import PlotWidget
+from PIL import Image
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
-from matplotlib.figure import Figure
+
 import matplotlib.pyplot as plt
+
+import matplotlib
+
+# matplotlib.rcParams['figure.figsize'] = [10, 10] # for square canvas
+matplotlib.rcParams['figure.subplot.left'] = 0.06
+matplotlib.rcParams['figure.subplot.bottom'] = 0.06
+matplotlib.rcParams['figure.subplot.right'] = 0.99
+matplotlib.rcParams['figure.subplot.top'] = 1
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -28,6 +42,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.menu.triggered.connect(self.action_menu)
         self.menu_2.triggered.connect(self.action_menu2)
         self.tableWidget.cellChanged.connect(self.table_widget)
+
+        self.pushButton.clicked.connect(self.connect_ser)
+        self.pushButton_2.clicked.connect(self.setOpenFileName)
+        self.pushButton_3.clicked.connect(self.search_ser)
+
+        frameStyle = QtWidgets.QFrame.Sunken | QtWidgets.QFrame.Panel
+        self.openFileNameLabel = QtWidgets.QLabel()
+        self.openFileNameLabel.setFrameStyle(frameStyle)
 
     @staticmethod
     def action_menu(state):
@@ -48,59 +70,84 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def table_widget(self, x, y):
         print(f"Table 1 ({x},{y}) = {self.tableWidget.item(x, y).text()}")
 
+    def setOpenFileName(self):
+        options = QtWidgets.QFileDialog.Options()
+        if not self.pushButton_2.isChecked():
+            options |= QtWidgets.QFileDialog.DontUseNativeDialog
+        fileName, filtr = QtWidgets.QFileDialog.getOpenFileName(self,
+                                                                "打开文件",
+                                                                self.openFileNameLabel.text(),
+                                                                "png Files (*.png);;jpg Files (*.jpg)", "", options)
+
+        if fileName:
+            self.verticalLayout_4.removeWidget(self.widget)
+            WidgetGraph(window)
+            print(fileName)
+
+    def search_ser(self):
+
+        self.comboBox.clear()
+        port_list = list(serial.tools.list_ports.comports())
+        for i in port_list:
+            self.comboBox.addItem(i.device)
+
+    def connect_ser(self):
+        print(self.comboBox.currentIndex(), self.comboBox.currentText())
+
 
 class WidgetGraph:
 
     def __init__(self, widget_main):
-        self.figure = Figure(dpi=100)
-        # self.figure = plt.gcf()
-        img = plt.imread("src.png")  # 读取图片
-        print(img.shape)  # 高宽 像素值 opencv显示
-        # plt.grid(True)  # 生成网格
-        self.dynamic_canvas = FigureCanvas(self.figure)
+        self.fig, self.ax = plt.subplots()
 
-        widget_main.verticalLayout.addWidget(NavigationToolbar(self.dynamic_canvas, widget_main))  # 添加
-        widget_main.verticalLayout.addWidget(self.dynamic_canvas)
+        image = Image.open("C:/Users/Gei/Desktop/MyPythonLearn/PythonQt/Haoru/core/src.png")
+        w, h = image.size
+        scale = 1.0 * w / 2000
+        new_im = image.resize((int(w / scale), int(h / scale)), Image.ANTIALIAS)
 
-        self.dynamic_canvas.mpl_connect("button_release_event", self._on_left_click)  # 连接信号
-        self.dynamic_canvas.mpl_connect('scroll_event', self._on_wheel)
+        img = plt.imread("src.png")
 
-        self._dynamic_ax = self.dynamic_canvas.figure.subplots()
+        # self.ax.set_xlim(0, 280)  # 初始函数，设置绘图范围
+        # self.ax.set_ylim(0, 150)
 
-        self._dynamic_ax.imshow(img, extent=[0, img.shape[1], 0,img.shape[0]])  # 设置图片大小
-        
-        # t = np.linspace(0, 100, 100)
-        self.x = np.linspace(0, img.shape[1], 10)
-        self.y = np.linspace(0, img.shape[0], 10)
+        # # 修改主刻度
+        # xmajorLocator = MultipleLocator(100)  # 将x主刻度标签设置为20的倍数
+        #
+        # ymajorLocator = MultipleLocator(100)  # 将y轴主刻度标签设置为0.5的倍数
+        #
+        # self.ax.xaxis.set_major_locator(xmajorLocator)
+        #
+        # self.ax.yaxis.set_major_locator(ymajorLocator)
+        # xminorLocator = MultipleLocator(20)  # 将x轴次刻度标签设置为5的倍数
+        # yminorLocator = MultipleLocator(20)  # 将此y轴次刻度标签设置为0.1的倍数
+        # self.ax.xaxis.set_minor_locator(xminorLocator)
+        # self.ax.yaxis.set_minor_locator(yminorLocator)
+        # plt.figure(figsize=(img.shape[1], img.shape[0]), dpi=100)
+        # my_x_ticks = np.arange(0, 280, 10)
+        # my_y_ticks = np.arange(0, 150, 10)
+        # plt.xticks(my_x_ticks)
+        # plt.yticks(my_y_ticks)
 
-        # Set up a Line2D.
-        # self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
-        self._line, = self._dynamic_ax.plot(self.x,self.y)
-        self._timer = self.dynamic_canvas.new_timer(50)
-        self._timer.add_callback(self._update_canvas)
-        self._timer.start()
+        imgx = img.shape[1]
+        imgy = img.shape[0]
 
-    def _update_canvas(self):
-        # t = np.linspace(0, 100, 100)
-        # Shift the sinusoid as a function of time.
-        self._line.set_data(self.x, self.y)
-        self._line.figure.canvas.draw()
+        # imgx = imgx / 10
+        #
+        # imgy = imgy / 10
 
-    def _on_left_click(self, event):
-        print(event)
-        pass
+        self.ax.imshow(new_im, extent=[0, 280, 0, 150])  # 设置图片大小
 
-    def _on_wheel(self, event):
-        print(event)
-        pass
+        plt.grid()
 
-    # def _on_pick(self, event):
-    #     print(event)
+        self.dynamic_canvas = FigureCanvas(self.fig)
+
+        widget_main.verticalLayout_4.addWidget(NavigationToolbar(self.dynamic_canvas, widget_main))  # 添加
+        widget_main.verticalLayout_4.addWidget(self.dynamic_canvas)
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
-    WidgetGraph(window)
+    # WidgetGraph(window)
     window.show()
     sys.exit(app.exec_())

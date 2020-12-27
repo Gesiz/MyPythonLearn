@@ -1,5 +1,8 @@
 from matplotlib.pyplot import figure, show
 import numpy
+import matplotlib
+
+matplotlib.use('Qt5Agg')
 
 class ZoomPan:
     def __init__(self):
@@ -87,13 +90,8 @@ fig = figure()
 
 ax = fig.add_subplot(111, xlim=(0,1), ylim=(0,1), autoscale_on=False)
 
-ax.set_title('Click to zoom')
-x,y,s,c = numpy.random.rand(4,200)
-s *= 200
 
-ax.scatter(x,y,s,c)
-scale = 1.1
 zp = ZoomPan()
-figZoom = zp.zoom_factory(ax, base_scale = scale)
+figZoom = zp.zoom_factory(ax)
 figPan = zp.pan_factory(ax)
 show()

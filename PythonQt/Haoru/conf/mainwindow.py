@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1080, 720)
+        MainWindow.resize(1370, 703)
         self.ActMenu1_1 = QAction(MainWindow)
         self.ActMenu1_1.setObjectName(u"ActMenu1_1")
         self.ActMenu1_1.setCheckable(True)
@@ -28,7 +28,17 @@ class Ui_MainWindow(object):
         self.ActMenu2_1.setObjectName(u"ActMenu2_1")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.tableWidget = QTableWidget(self.centralwidget)
+        self.verticalLayout_5 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.splitter = QSplitter(self.centralwidget)
+        self.splitter.setObjectName(u"splitter")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.splitter.sizePolicy().hasHeightForWidth())
+        self.splitter.setSizePolicy(sizePolicy)
+        self.splitter.setOrientation(Qt.Horizontal)
+        self.tableWidget = QTableWidget(self.splitter)
         if (self.tableWidget.columnCount() < 4):
             self.tableWidget.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
@@ -105,13 +115,19 @@ class Ui_MainWindow(object):
         __qtablewidgetitem23.setTextAlignment(Qt.AlignCenter);
         self.tableWidget.setItem(3, 3, __qtablewidgetitem23)
         self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(0, 0, 281, 146))
+        sizePolicy1 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy1)
+        self.tableWidget.setMaximumSize(QSize(402, 16777215))
         self.tableWidget.setAutoFillBackground(False)
         self.tableWidget.setStyleSheet(u"tab{width:0}\n"
 "")
         self.tableWidget.setDragEnabled(False)
         self.tableWidget.setAlternatingRowColors(True)
         self.tableWidget.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.splitter.addWidget(self.tableWidget)
         self.tableWidget.horizontalHeader().setVisible(True)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
@@ -122,25 +138,7 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setProperty("showSortIndicator", False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
-        self.comboBox = QComboBox(self.centralwidget)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setGeometry(QRect(160, 640, 68, 22))
-        self.tabWidget = QTabWidget(self.centralwidget)
-        self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(0, 150, 271, 301))
-        self.Tab_1 = QWidget()
-        self.Tab_1.setObjectName(u"Tab_1")
-        self.tabWidget.addTab(self.Tab_1, "")
-        self.Tab_2 = QWidget()
-        self.Tab_2.setObjectName(u"Tab_2")
-        self.tabWidget.addTab(self.Tab_2, "")
-        self.Tab_3 = QWidget()
-        self.Tab_3.setObjectName(u"Tab_3")
-        self.tabWidget.addTab(self.Tab_3, "")
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(50, 640, 75, 24))
-        self.tableWidget_2 = QTableWidget(self.centralwidget)
+        self.tableWidget_2 = QTableWidget(self.splitter)
         if (self.tableWidget_2.columnCount() < 9):
             self.tableWidget_2.setColumnCount(9)
         __qtablewidgetitem24 = QTableWidgetItem()
@@ -166,19 +164,122 @@ class Ui_MainWindow(object):
         __qtablewidgetitem33 = QTableWidgetItem()
         self.tableWidget_2.setVerticalHeaderItem(0, __qtablewidgetitem33)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
-        self.tableWidget_2.setGeometry(QRect(20, 460, 211, 141))
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.tableWidget_2.sizePolicy().hasHeightForWidth())
+        self.tableWidget_2.setSizePolicy(sizePolicy2)
+        self.splitter.addWidget(self.tableWidget_2)
         self.tableWidget_2.horizontalHeader().setVisible(True)
         self.tableWidget_2.verticalHeader().setVisible(False)
-        self.verticalLayoutWidget = QWidget(self.centralwidget)
+
+        self.verticalLayout_5.addWidget(self.splitter)
+
+        self.splitter_3 = QSplitter(self.centralwidget)
+        self.splitter_3.setObjectName(u"splitter_3")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(3)
+        sizePolicy3.setHeightForWidth(self.splitter_3.sizePolicy().hasHeightForWidth())
+        self.splitter_3.setSizePolicy(sizePolicy3)
+        self.splitter_3.setOrientation(Qt.Horizontal)
+        self.splitter_2 = QSplitter(self.splitter_3)
+        self.splitter_2.setObjectName(u"splitter_2")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(1)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
+        self.splitter_2.setSizePolicy(sizePolicy4)
+        self.splitter_2.setMaximumSize(QSize(16777215, 16777215))
+        self.splitter_2.setOrientation(Qt.Vertical)
+        self.layoutWidget = QWidget(self.splitter_2)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.verticalLayout_2 = QVBoxLayout(self.layoutWidget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.pushButton_3 = QPushButton(self.layoutWidget)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+
+        self.horizontalLayout_2.addWidget(self.pushButton_3)
+
+        self.comboBox = QComboBox(self.layoutWidget)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.horizontalLayout_2.addWidget(self.comboBox)
+
+        self.pushButton = QPushButton(self.layoutWidget)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.horizontalLayout_2.addWidget(self.pushButton)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.lineEdit = QLineEdit(self.layoutWidget)
+        self.lineEdit.setObjectName(u"lineEdit")
+
+        self.horizontalLayout_3.addWidget(self.lineEdit)
+
+        self.lineEdit_2 = QLineEdit(self.layoutWidget)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+
+        self.horizontalLayout_3.addWidget(self.lineEdit_2)
+
+
+        self.horizontalLayout_4.addLayout(self.horizontalLayout_3)
+
+        self.pushButton_2 = QPushButton(self.layoutWidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+
+        self.horizontalLayout_4.addWidget(self.pushButton_2)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_4)
+
+        self.splitter_2.addWidget(self.layoutWidget)
+        self.tabWidget = QTabWidget(self.splitter_2)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.Tab_1 = QWidget()
+        self.Tab_1.setObjectName(u"Tab_1")
+        self.tabWidget.addTab(self.Tab_1, "")
+        self.Tab_2 = QWidget()
+        self.Tab_2.setObjectName(u"Tab_2")
+        self.tabWidget.addTab(self.Tab_2, "")
+        self.Tab_3 = QWidget()
+        self.Tab_3.setObjectName(u"Tab_3")
+        self.tabWidget.addTab(self.Tab_3, "")
+        self.splitter_2.addWidget(self.tabWidget)
+        self.splitter_3.addWidget(self.splitter_2)
+        self.verticalLayoutWidget = QWidget(self.splitter_3)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(310, 10, 761, 681))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.widget = QWidget(self.verticalLayoutWidget)
+        self.widget.setObjectName(u"widget")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy5)
+        self.widget.setMinimumSize(QSize(988, 491))
+
+        self.verticalLayout_4.addWidget(self.widget)
+
+        self.splitter_3.addWidget(self.verticalLayoutWidget)
+
+        self.verticalLayout_5.addWidget(self.splitter_3)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1080, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1370, 22))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu_2 = QMenu(self.menubar)
@@ -193,7 +294,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -266,10 +367,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"0.00", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_1), QCoreApplication.translate("MainWindow", u"\u7cfb\u7edf\u914d\u7f6e", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_2), QCoreApplication.translate("MainWindow", u"\u5e95\u56fe\u914d\u7f6e", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_3), QCoreApplication.translate("MainWindow", u"\u6805\u683c\u8bbe\u7f6e", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         ___qtablewidgetitem24 = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u6807\u7b7eID", None));
         ___qtablewidgetitem25 = self.tableWidget_2.horizontalHeaderItem(1)
@@ -290,6 +387,17 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"Anc 3", None));
         ___qtablewidgetitem33 = self.tableWidget_2.verticalHeaderItem(0)
         ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None));
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.lineEdit.setInputMask("")
+        self.lineEdit.setText("")
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u8bf7\u8f93\u5165\u573a\u5730\u7684\u5bbd\u5ea6", None))
+        self.lineEdit_2.setText("")
+        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u8bf7\u8f93\u5165\u573a\u5730\u7684\u9ad8\u5ea6", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u52a0\u8f7d\u56fe\u7247", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_1), QCoreApplication.translate("MainWindow", u"\u7cfb\u7edf\u914d\u7f6e", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_2), QCoreApplication.translate("MainWindow", u"\u5e95\u56fe\u914d\u7f6e", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_3), QCoreApplication.translate("MainWindow", u"\u6805\u683c\u8bbe\u7f6e", None))
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u663e\u793a", None))
         self.menu_2.setTitle(QCoreApplication.translate("MainWindow", u"\u5e2e\u52a9", None))
     # retranslateUi

@@ -6,394 +6,476 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
-    <height>720</height>
+    <width>1370</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="tableWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>281</width>
-      <height>146</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">tab{width:0}
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>402</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">tab{width:0}
 </string>
-    </property>
-    <property name="dragEnabled">
-     <bool>false</bool>
-    </property>
-    <property name="alternatingRowColors">
-     <bool>true</bool>
-    </property>
-    <property name="horizontalScrollMode">
-     <enum>QAbstractItemView::ScrollPerPixel</enum>
-    </property>
-    <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="horizontalHeaderCascadingSectionResizes">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="horizontalHeaderHighlightSections">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="horizontalHeaderStretchLastSection">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderCascadingSectionResizes">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderHighlightSections">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderStretchLastSection">
-     <bool>false</bool>
-    </attribute>
-    <row>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>4</string>
-     </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>基站ID</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>X  (m)</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Y  (m)</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Z  (m)</string>
-     </property>
-    </column>
-    <item row="0" column="0">
-     <property name="text">
-      <string>1</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-     <property name="checkState">
-      <enum>Unchecked</enum>
-     </property>
+       </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="horizontalScrollMode">
+        <enum>QAbstractItemView::ScrollPerPixel</enum>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>基站ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>X  (m)</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Y  (m)</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Z  (m)</string>
+        </property>
+       </column>
+       <item row="0" column="0">
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="checkState">
+         <enum>Unchecked</enum>
+        </property>
+       </item>
+       <item row="0" column="1">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="0" column="2">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="background">
+         <brush brushstyle="NoBrush">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </property>
+       </item>
+       <item row="0" column="3">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="1" column="0">
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="checkState">
+         <enum>Unchecked</enum>
+        </property>
+       </item>
+       <item row="1" column="1">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="1" column="2">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="1" column="3">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="2" column="0">
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="checkState">
+         <enum>Unchecked</enum>
+        </property>
+       </item>
+       <item row="2" column="1">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="2" column="2">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="2" column="3">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="3" column="0">
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+        <property name="checkState">
+         <enum>Unchecked</enum>
+        </property>
+       </item>
+       <item row="3" column="1">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="3" column="2">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item row="3" column="3">
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>新建行</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>标签ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>X</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Y</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Z</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>R95</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anc 0</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anc 1</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anc 2</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anc 3</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
     </item>
-    <item row="0" column="1">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
+    <item>
+     <widget class="QSplitter" name="splitter_3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>3</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QSplitter" name="splitter_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="pushButton_3">
+             <property name="text">
+              <string>搜索串口</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>连接串口</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="inputMask">
+                <string/>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>请输入场地的宽度</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_2">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>请输入场地的高度</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="text">
+              <string>加载图片</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <widget class="QWidget" name="Tab_1">
+         <attribute name="title">
+          <string>系统配置</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="Tab_2">
+         <attribute name="title">
+          <string>底图配置</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="Tab_3">
+         <attribute name="title">
+          <string>栅格设置</string>
+         </attribute>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QWidget" name="widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </item>
-    <item row="0" column="2">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-     <property name="background">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item row="0" column="3">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="1" column="0">
-     <property name="text">
-      <string>2</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-     <property name="checkState">
-      <enum>Unchecked</enum>
-     </property>
-    </item>
-    <item row="1" column="1">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="1" column="2">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="1" column="3">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="2" column="0">
-     <property name="text">
-      <string>3</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-     <property name="checkState">
-      <enum>Unchecked</enum>
-     </property>
-    </item>
-    <item row="2" column="1">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="2" column="2">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="2" column="3">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="3" column="0">
-     <property name="text">
-      <string>4</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-     <property name="checkState">
-      <enum>Unchecked</enum>
-     </property>
-    </item>
-    <item row="3" column="1">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="3" column="2">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-    <item row="3" column="3">
-     <property name="text">
-      <string>0.00</string>
-     </property>
-     <property name="textAlignment">
-      <set>AlignCenter</set>
-     </property>
-    </item>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>640</y>
-      <width>68</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>150</y>
-      <width>271</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="Tab_1">
-     <attribute name="title">
-      <string>系统配置</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="Tab_2">
-     <attribute name="title">
-      <string>底图配置</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="Tab_3">
-     <attribute name="title">
-      <string>栅格设置</string>
-     </attribute>
-    </widget>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>640</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="tableWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>460</y>
-      <width>211</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>标签ID</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>X</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Y</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Z</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>R95</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Anc 0</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Anc 1</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Anc 2</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Anc 3</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>10</y>
-      <width>761</width>
-      <height>681</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1080</width>
+     <width>1370</width>
      <height>22</height>
     </rect>
    </property>
