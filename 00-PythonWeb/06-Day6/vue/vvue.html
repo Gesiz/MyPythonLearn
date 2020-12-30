@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 定义一个ID为app 的 div标签-->
+    <div id='app'>
+        <a>{{msg}}</a>
+        <h1>{{name}}</h1>
+        <a v-bind:href="home">jump</a>
+        <hr>
+        <!-- if -->
+        <a href="#" v-if="isLogin">是否看的见</a>
+        <span v-if="isLogin">个人中心</span>
+        <span v-else>登录</span>
+        <!-- v-if v-else-if v-else-if v-else -->
+        <!-- level = 1 国王 level = 2 皇亲 level = 3 国戚 level = 4 大臣 否则就是 平民-->
+        <span v-if = "level === 1">国王</span>
+        <span v-else-if = "level === 2">皇亲</span>
+        <span v-else-if = "level === 3">国戚</span>
+        <span v-else-if = "level === 4">大臣</span>
+        <span v-else = "level === 1">平民</span>
+        <!-- v-show 和 v-if 使用类似 -->
+        <hr>
+        <h1 v-if = "seen">if</h1>
+        <h2 v-show = "seen">show</h2>
+    </div>
+</body>
+<script type="text/javascript">
+    //tar 变量的声明
+    //vm 变量名
+    //new 关键字
+    //Vue() 创建实例对象
+    // 我们定义的vue实例 要和 html的容器关联
+    var vm = new Vue(
+        {
+            el: '#app',   //获取html中 表浅id为 app的元素
+            data: {         // data 用于存放变量
+                msg: 'hello',   // msg 可以理解为变量名 hello 为值
+                name: 'class',
+                home: 'http://www.baidu.com',
+                isLogin: true,
+                level:4,
+                seen:false,
+            },
+        }
+    )
+
+</script>
+
+</html>
