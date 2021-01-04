@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+    <input type="text" v-model="todo">
+    <button v-on:click="add">注册</button>
+    <ul>
+        <li v-for="item in todos">{{item}}</li>
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',   //获取html中 表浅id为 app的元素
+        data: {         // data 用于存放变量
+            msg: 'hello',
+            todos: ['学习Django基础', '学习Vue', '学习项目'],
+            todo: '',
+        },
+        methods: {
+            add: function () {
+                // 将 todo 添加到 todos 中
+                // this.todo
+                // this 可以理解为 self
+                //self = vm Vue 实例
+                this.todos.push(this.todo)
+                this.todo = ''
+            }
+        }
+    })
+</script>
+</html>

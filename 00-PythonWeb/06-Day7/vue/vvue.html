@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<!-- 定义一个ID为app 的 div标签-->
+<div id='apps'>
+    <a>{{msg}}</a>
+    <hr>
+    <!-- for 语法形式 v-for="item in  items"-->
+    <ul>
+        <li v-for="item in shoes">{{item}}</li>
+    </ul>
+    <!-- for 语法获取素银 v-for="(item,index) in items" index就是索引 -->
+    <ul>
+        <li v-for="(shoe,index) in shoes">{{index + 1}}{{shoe}}</li>
+    </ul>
+
+
+</div>
+<div id="appss">
+    <input type="text" name="username" id="username" v-model="user">
+    <ul>
+        <li>
+            <button v-on:click="register(5)">注册</button>
+        </li>
+
+    </ul>
+
+
+</div>
+<div id="app">
+    <span>{{msg}}</span>
+    <hr>
+    <table border="1">
+        <tr>
+            <td>用户名</td>
+            <td>
+                <input type="text" name="username" v-model="name">
+            </td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td>
+                <input type="password" name="password" v-model="pwd">
+            </td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td >
+                男 <input type="radio" name="sex" value="boy" v-model="sex">
+                女 <input type="radio" name="sex" value="girl" v-model="sex">
+            </td>
+        </tr>
+        <tr>
+            <td>爱好</td>
+            <td >
+                篮球 <input type="checkbox" name="like" value="篮球" v-model="like">
+                足球 <input type="checkbox" name="like" value="足球" v-model="like">
+                乒乓球 <input type="checkbox" name="like" value="乒乓球" v-model="like">
+            </td>
+        </tr>
+        <tr>
+            <td>城市</td>
+            <td>
+                <select v-model="city">
+                    <option value="bj">北京</option>
+                    <option value="sh">上海</option>
+                    <option value="sz">深圳</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>个人简介</td>
+            <td>
+                <textarea v-model="desc"></textarea>
+            </td>
+        </tr>
+    </table>
+    <!-- 注册按钮没有在table里 -->
+    <button v-on:click="register">注册</button>
+</div>
+
+</body>
+<script type="text/javascript">
+    //tar 变量的声明
+    //vm 变量名
+    //new 关键字
+    //Vue() 创建实例对象
+    // 我们定义的vue实例 要和 html的容器关联
+    var vm = new Vue(
+        {
+            el: '#app',   //获取html中 表浅id为 app的元素
+            data: {         // data 用于存放变量
+                msg: 'hello',   // msg 可以理解为变量名 hello 为值
+                //shoes: ['男鞋', '女鞋', '高跟鞋', '低跟鞋'],
+                user: '',
+                name:'',
+                pwd: '',
+                sex: '',
+                like: [],
+                city: '',
+                desc: ''
+            },
+            methods: {
+                register: function () {
+                    alert(this.name)
+                }
+            }
+        }
+    )
+
+</script>
+
+</html>
