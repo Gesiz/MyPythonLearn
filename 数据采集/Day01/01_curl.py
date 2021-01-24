@@ -16,6 +16,7 @@ curl 的使用 apt install curl
     -k 允许发起不安全的SSL 请求
     -b 设置cookies curl -b a=test http://httpbin.org/cookies
     -s 不显示其他无关信息
+    -v 显示连接过程中的所有信息
     alias myip="curl http://httpbin.org/get|grep -s -E 'origin' | cut -d '\"' -f4"   
 """
 

@@ -1,0 +1,50 @@
+## 使用SecureCRT
+
+```shell
+1、从下面的地址下载 lrzsz-0.12.20.tar.gz
+
+http://down1.chinaunix.net/distfiles/lrzsz-0.12.20.tar.gz
+
+2、查看里面的INSTALL文档了解安装参数说明和细节
+
+3、解压文件
+
+tar zxvf lrzsz-0.12.20.tar.gz
+
+4、进入目录
+
+cd lrzsz-0.12.20
+
+5、./configure --prefix=/usr/local/lrzsz
+
+6、make
+
+7、make install
+
+8、建立软链接
+
+	#cd /usr/bin
+
+	#ln -s /usr/local/lrzsz/bin/lrz rz
+
+	#ln -s /usr/local/lrzsz/bin/lsz sz
+
+9、测试
+
+运行 rz 弹出SecureCRT上传窗口,用SecureCRT来上传和下载文件。
+```
+
+- **使用Zmodem从客户端上传文件到linux服务器**
+
+```shell
+1.在用SecureCRT登陆linux终端.
+2.选中你要放置上传文件的路径，在目录下然后输入rz命令,SecureCRT会弹出文件选择对话框，在查找范围中找到你要上传的文件，按Add按钮。然后OK就可以把文件上传到linux上了。或者在Transfer->Zmodem Upoad list弹出文件选择对话框，选好文件后按Add按钮。然后OK窗口自动关闭。然后在linux下选中存放文件的目录，输入rz命令。liunx就把那个文件上传到这个目录下了。
+```
+
+- **使用Zmodem下载文件到客户端：**
+
+```shell
+sz filename
+```
+
+- 

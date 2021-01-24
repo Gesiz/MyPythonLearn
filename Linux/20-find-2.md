@@ -21,7 +21,7 @@ find ./ -name "*.log" -mtime +5 -ok rm {} \;
 - **-exec 使用 grep指令**
 
 ```shell
-find /etc -name "passwd*" -exex -grep "root" {} \;
+find /etc -name "passwd*" -exec -grep "root" {} \;
 ```
 
 - **查找文件移动到指定目录**
